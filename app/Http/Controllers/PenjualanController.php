@@ -27,6 +27,10 @@ class PenjualanController extends Controller
 			'ppn' => $request->ppn,
 			'npwp_pelanggan' => $request->npwp,
 			'id_user' => $request->id_user
+		]);
+		DB:commit();
+		return redirect('/penjualan');
+    }
     public function update(Request $request)
     {
         DB::table('penjualan')->where('penjualan',$request->id)->update([
