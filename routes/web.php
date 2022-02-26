@@ -22,6 +22,7 @@ Route::get('/penjualan/tambah','PenjualanController@tambah');
 Route::post('/penjualan/store','PenjualanController@store');
 Route::get('/penjualan/edit/{id}','PenjualanController@edit');
 Route::post('/penjualan/update/{id}','PenjualanController@update');
+Route::get('/penjualan/hapus/{id}','PenjualanController@hapus');
 
 
 
