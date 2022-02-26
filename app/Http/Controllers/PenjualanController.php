@@ -27,51 +27,28 @@ class PenjualanController extends Controller
 			'ppn' => $request->ppn,
 			'npwp_pelanggan' => $request->npwp,
 			'id_user' => $request->id_user
-public function update(Request $request)
-{
-	
-		DB::table('penjualan')->where('penjualan',$request->id)->update([
-			'no_penjualan' => $request->no_penjualan,
-			'tgl_penjualan' => $request->tgl_penjualan,
-			'nama_pelanggan' => $request->nama_pelanggan,
-			'ppn' => $request->ppn,
-			'npwp_pelanggan' => $request->npwp,
-			'id_user' => $request->id_user
-		]);
-	
-	return redirect('/penjualan');
-}
-			
-		]);
-		DB::commit();
-	return redirect('/penjualan');
+    public function update(Request $request)
+    {
+        DB::table('penjualan')->where('penjualan',$request->id)->update([
+                'no_penjualan' => $request->no_penjualan,
+                'tgl_penjualan' => $request->tgl_penjualan,
+                'nama_pelanggan' => $request->nama_pelanggan,
+                'ppn' => $request->ppn,
+                'npwp_pelanggan' => $request->npwp,
+                'id_user' => $request->id_user
+            ]);
+        DB::commit();
+        return redirect('/penjualan');
     }
-
-    public function edit($id)
+			
+	public function edit($id)
     {
     	$penjualane = DB::table('penjualan')->where('id',$id)->get();
     	return view('edit',['penjualan' => $penjualane]);
     }
 
-    public function update($id)
-    {
+       	
     	
-    	
-public function update(Request $request)
-{
-	DB::beginTransaction();
-	DB::table('penjualan')->where('penjualan',$request->id)->update([
-		'no_penjualan' => $request->no_penjualan,
-		'tgl_penjualan' => $request->tgl_penjualan,
-		'nama_pelanggan' => $request->nama_pelanggan,
-		'ppn' => $request->ppn,
-		'npwp_pelanggan' => $request->npwp,
-		'id_user' => $request->id_user
-	]);
-	DB::commit();
-	return redirect('/penjualan');
-	
-}
     	
     
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
