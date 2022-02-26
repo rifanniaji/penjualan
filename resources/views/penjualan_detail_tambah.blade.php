@@ -16,7 +16,7 @@
 	<form action="/penjualan/store_detail" method="post">
 		{{ csrf_field() }}
 		<input type="hidden" name="id">
-		<input type="hidden" name="id_penjualan" value=''>
+		<input type="hidden" name="id_penjualan" value='1'>
 		Deskripsi <input type="text" name="deskripsi" required="required"> <br/>
 		Qty <input type="number" name="qty" required="required"> <br/>
 		Harga <input type="number" name="harga" required="required"> <br/>
