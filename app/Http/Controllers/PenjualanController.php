@@ -50,7 +50,13 @@ class PenjualanController extends Controller
     	$penjualane = DB::table('penjualan')->where('id',$id)->get();
     	return view('edit',['penjualan' => $penjualane]);
     }
-
+    public function hapus($id)
+	{
+		DB::beginTransaction();
+		DB::table('penjualan')->where('id',$id)->delete();
+		return redirect('/penjualan');
+		DB::commit();
+	}
        	
     	
     	
