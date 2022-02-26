@@ -55,22 +55,25 @@ public function update(Request $request)
 
     public function update($id)
     {
-    	DB::beginTransaction();
+    	
     	
 public function update(Request $request)
 {
-	
-	DB::table('pegawai')->where('pegawai_id',$request->id)->update([
-		'pegawai_nama' => $request->nama,
-		'pegawai_jabatan' => $request->jabatan,
-		'pegawai_umur' => $request->umur,
-		'pegawai_alamat' => $request->alamat
+	DB::beginTransaction();
+	DB::table('penjualan')->where('penjualan',$request->id)->update([
+		'no_penjualan' => $request->no_penjualan,
+		'tgl_penjualan' => $request->tgl_penjualan,
+		'nama_pelanggan' => $request->nama_pelanggan,
+		'ppn' => $request->ppn,
+		'npwp_pelanggan' => $request->npwp,
+		'id_user' => $request->id_user
 	]);
-	// alihkan halaman ke halaman pegawai
-	return redirect('/pegawai');
+	DB::commit();
+	return redirect('/penjualan');
+	
 }
-    	DB::commit();
-    }
+    	
+    
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public function penjualan_detail($id)
     {
